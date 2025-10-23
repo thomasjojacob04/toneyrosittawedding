@@ -1,67 +1,69 @@
 <template>
   <section class="gallery-section">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Our Moments</h2>
-        <p class="section-subtitle">Cherished memories we'd love to share</p>
-        <div class="title-divider"></div>
-      </div>
-
-      <div class="gallery-carousel">
-        <div 
-          class="carousel-container"
-          :class="{ 'is-dragging': isDragging }"
-          @mousedown="startDrag"
-          @mousemove="onDrag"
-          @mouseup="endDrag"
-          @mouseleave="endDrag"
-          @touchstart="startDrag"
-          @touchmove="onDrag"
-          @touchend="endDrag"
-        >
-          <button 
-            class="carousel-btn prev-btn" 
-            @click.stop="prevSlide"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64" color="#b3b3b3" fill="none">
-              <path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="#b3b3b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </button>
-
-          <div 
-            class="carousel-track"
-            ref="carouselTrack"
-            :style="trackStyle"
-          >
-            <div 
-              v-for="(image, index) in displayImages" 
-              :key="`img-${index}`"
-              class="carousel-slide"
-            >
-              <div class="image-wrapper">
-                <img :src="image.url" :alt="image.alt" class="gallery-image" draggable="false" />
-              </div>
-            </div>
-          </div>
-
-          <button 
-            class="carousel-btn next-btn" 
-            @click.stop="nextSlide"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64" color="#b3b3b3" fill="none">
-              <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="#b3b3b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </button>
+      <div class="gallery-content">
+        <div class="section-header">
+          <h2 class="section-title">Our Moments</h2>
+          <p class="section-subtitle">Cherished memories we'd love to share</p>
+          <!-- <div class="title-divider"></div> -->
         </div>
 
-        <div class="carousel-indicators">
-          <button
-            v-for="(image, index) in images"
-            :key="index"
-            class="indicator"
-            :class="{ active: getActualIndex() === index }"
-            @click="goToSlide(index)"
-          ></button>
+        <div class="gallery-carousel">
+          <div 
+            class="carousel-container"
+            :class="{ 'is-dragging': isDragging }"
+            @mousedown="startDrag"
+            @mousemove="onDrag"
+            @mouseup="endDrag"
+            @mouseleave="endDrag"
+            @touchstart="startDrag"
+            @touchmove="onDrag"
+            @touchend="endDrag"
+          >
+            <button 
+              class="carousel-btn prev-btn" 
+              @click.stop="prevSlide"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64" color="#b3b3b3" fill="none">
+                <path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="#b3b3b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+
+            <div 
+              class="carousel-track"
+              ref="carouselTrack"
+              :style="trackStyle"
+            >
+              <div 
+                v-for="(image, index) in displayImages" 
+                :key="`img-${index}`"
+                class="carousel-slide"
+              >
+                <div class="image-wrapper">
+                  <img :src="image.url" :alt="image.alt" class="gallery-image" draggable="false" />
+                </div>
+              </div>
+            </div>
+
+            <button 
+              class="carousel-btn next-btn" 
+              @click.stop="nextSlide"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64" color="#b3b3b3" fill="none">
+                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="#b3b3b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="carousel-indicators">
+            <button
+              v-for="(image, index) in images"
+              :key="index"
+              class="indicator"
+              :class="{ active: getActualIndex() === index }"
+              @click="goToSlide(index)"
+            ></button>
+          </div>
         </div>
       </div>
     </div>
@@ -266,52 +268,63 @@ onUnmounted(() => {
 <style scoped>
 .gallery-section {
   padding: 100px 20px;
-  background: linear-gradient(to bottom, #fafafa, #ffffff);
+  background: linear-gradient(135deg, #faf8f5 0%, #ffffff 50%, #f8f5f0 100%);
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
+.gallery-content {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
 .section-header {
-  text-align: center;
-  margin-bottom: 60px;
+  flex: 1;
+  text-align: left;
 }
 
 .section-title {
   font-size: clamp(2rem, 5vw, 3.5rem);
-  color: #2c3e50;
-  font-weight: 700;
+  color: #000000;
+  font-weight: 600;
   margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
-  color: #7f8c8d;
+  font-size: 1.5rem;
+  color: #d4af37;
   font-style: italic;
   margin-bottom: 25px;
   font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0px;
 }
 
 .title-divider {
   width: 100px;
   height: 4px;
-  background: #ffd700;
-  margin: 0 auto;
+  background: #d4af37;
+  margin: 0;
   border-radius: 2px;
 }
 
 .gallery-carousel {
-  max-width: 700px;
-  margin: 0 auto;
+  flex: 1;
+  max-width: 500px;
 }
 
 .carousel-container {
   position: relative;
   overflow: hidden;
-  border-radius: 30px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  box-shadow: 
+    0 10px 15px rgba(0, 0, 0, 0.459);
   cursor: grab;
   user-select: none;
   touch-action: pan-y; /* Allow vertical scrolling */
@@ -353,7 +366,7 @@ onUnmounted(() => {
 }
 
 .carousel-slide:hover .gallery-image {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .carousel-btn {
@@ -400,7 +413,7 @@ onUnmounted(() => {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #ddd;
+  background: rgba(212, 175, 55, 0.3);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -408,19 +421,48 @@ onUnmounted(() => {
 }
 
 .indicator:hover {
-  background: #c9a959;
+  background: #d4af37;
   transform: scale(1.3);
 }
 
 .indicator.active {
   width: 24px;
   border-radius: 4px;
-  background: linear-gradient(90deg, #c9a959, #ffd700);
+  background: #d4af37;
 }
 
 @media (max-width: 768px) {
   .gallery-section {
     padding: 60px 15px;
+  }
+
+  .gallery-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .section-header {
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0px;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 0px;
+  }
+
+  .title-divider {
+    margin: 0 auto;
+  }
+
+  .gallery-carousel {
+    width: 100%;
+    max-width: 350px;
   }
 
   .carousel-btn {
@@ -458,7 +500,7 @@ onUnmounted(() => {
 
 @media (max-width: 480px) {
   .carousel-container {
-    border-radius: 20px;
+    border-radius: 0;
   }
 
   .carousel-btn {

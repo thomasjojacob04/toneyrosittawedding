@@ -24,7 +24,7 @@
         </div>
 
         <button @click="handleIntercession" class="intercession-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#ffffff" fill="none">
     <path d="M10.4107 19.9677C7.58942 17.858 2 13.0348 2 8.69444C2 5.82563 4.10526 3.5 7 3.5C8.5 3.5 10 4 12 6C14 4 15.5 3.5 17 3.5C19.8947 3.5 22 5.82563 22 8.69444C22 13.0348 16.4106 17.858 13.5893 19.9677C12.6399 20.6776 11.3601 20.6776 10.4107 19.9677Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
           I Have Interceded
@@ -38,7 +38,7 @@
       <!-- Copyright -->
       <div class="copyright">
         <div class="divider"></div>
-        <p>&copy; {{ currentYear }} Rositta & Toney. All rights reserved.</p>
+        <p>&copy; {{ currentYear }} Toney & Rositta. All rights reserved.</p>
         <p class="love-note">Made with love for our special day</p>
       </div>
     </div>
@@ -68,8 +68,8 @@ const handleIntercession = () => {
 
 <style scoped>
 .footer-section {
-  background: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   padding: 80px 20px 40px;
   position: relative;
   overflow: hidden;
@@ -108,14 +108,14 @@ const handleIntercession = () => {
   background: rgba(255, 215, 0, 0.1);
   border-radius: 50%;
   margin-bottom: 20px;
-  color: #ffd700;
+  color: #d4af37;
 }
 
 .prayer-title {
   font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 15px;
-  background: #ffd700;
+  background: #d4af37;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -123,7 +123,8 @@ const handleIntercession = () => {
 
 .prayer-subtitle {
   font-size: 1rem;
-  color: rgb(255, 255, 255);
+  font-weight: 500;
+  color: rgb(0, 0, 0);
   font-style: italic;
   font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
@@ -132,8 +133,8 @@ const handleIntercession = () => {
 }
 
 .prayer-text {
-  background: rgba(255, 255, 255, 0.158);
-  border: 1px solid #ffd700;
+  background: rgba(0, 0, 0, 0);
+  border: 2px solid #d4af37;
   border-radius: 20px;
   padding: 40px 30px;
   margin: 40px auto;
@@ -143,15 +144,16 @@ const handleIntercession = () => {
 
 .hail-mary {
   font-size: 1.15rem;
+  font-weight: 500;
   line-height: 2;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.95);
   font-family: 'Playfair Display', serif;
   font-style: italic;
 }
 
 .intercession-btn {
-  background: #ffd700;
-  color: #1a1a2e;
+  background: #d4af37;
+  color: #ffffff;
   border: none;
   padding: 18px 50px;
   font-size: 1.15rem;
@@ -185,14 +187,14 @@ const handleIntercession = () => {
 .intercession-count {
   margin-top: 20px;
   font-size: 1rem;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   animation: fadeIn 0.5s ease;
 }
 
 .count-number {
   font-weight: 700;
   font-size: 1.3rem;
-  color: #ffd700;
+  color: #d4af37;
   margin-right: 4px;
 }
 
@@ -204,13 +206,13 @@ const handleIntercession = () => {
 .divider {
   width: 300px;
   height: 0.5px;
-  background: #ffd700;
+  background: #d4af37;
   margin: 0 auto 20px;
 }
 
 .copyright p {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.6);
   margin: 8px 0;
   font-family: 'Montserrat', sans-serif;
 }

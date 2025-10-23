@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import EngagementPage from '../views/EngagementPage.vue'
+import WeddingPage from '../views/WeddingPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      redirect: '/engagement'
+      redirect: '/wedding'
     },
     {
-      path: '/engagement',
-      name: 'engagement',
-      component: EngagementPage
+      path: '/wedding',
+      name: 'wedding',
+      component: WeddingPage
     }
   ],
   scrollBehavior(to, from, savedPosition) {

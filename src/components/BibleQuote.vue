@@ -1,32 +1,35 @@
 <template>
   <section class="bible-quote-section">
     <div class="background-overlay"></div>
+    <div class="pattern-overlay"></div>
     
     <div class="container">
       <div class="quote-content">
-        <div class="book-icon-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" color="#ffd700" fill="none">
-          <circle cx="8.5" cy="16.5" r="5.5" stroke="#ffd700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
-          <circle cx="15.5" cy="16.5" r="5.5" stroke="#ffd700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
-          <path d="M12 9C12 9 16 7.14706 16 4.13889C16 2.95761 15.1579 2 14 2C13.0526 2 12.4211 2.41176 12 3.23529C11.5789 2.41176 10.9474 2 10 2C8.84211 2 8 2.95761 8 4.13889C8 7.14706 12 9 12 9Z" stroke="#ffd700" stroke-width="1.5" stroke-linejoin="round"></path>
-          </svg>
+        <div class="decorative-element top">
+          <!-- <div class="flourish left"></div> -->
+          <div class="center-ornament">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="none">
+              <circle cx="8.5" cy="16.5" r="5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
+              <circle cx="15.5" cy="16.5" r="5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
+              <path d="M12 9C12 9 16 7.14706 16 4.13889C16 2.95761 15.1579 2 14 2C13.0526 2 12.4211 2.41176 12 3.23529C11.5789 2.41176 10.9474 2 10 2C8.84211 2 8 2.95761 8 4.13889C8 7.14706 12 9 12 9Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <!-- <div class="flourish right"></div> -->
         </div>
 
-        <div class="quote-marks opening-quote">"</div>
-        
         <blockquote class="bible-verse">
-          We love because he first loved us.
+          I have found the one whom my soul loves.
         </blockquote>
         
-        <div class="quote-marks closing-quote">"</div>
-        
-        <p class="bible-reference">1 John 4:19</p>
-        
-        <!-- <div class="decorative-divider">
-          <svg xmlns="http://www.w3.org/2000/svg" class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-          </svg>
+        <!-- <div class="verse-divider">
+          <span class="divider-dot"></span>
+          <span class="divider-line"></span>
+          <span class="divider-dot"></span>
         </div> -->
+        
+        <p class="bible-reference">Song of Solomon 3:4</p>
+        
+        <div class="decorative-element bottom"></div>
       </div>
     </div>
   </section>
@@ -37,12 +40,14 @@
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
 .bible-quote-section {
   position: relative;
-  padding: 100px 20px;
-  background: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600') center/cover;
+  padding: 120px 20px;
+  background: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600') center/cover fixed;
   overflow: hidden;
-  min-height: 50vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
 }
@@ -53,13 +58,25 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000000;
-  opacity: 0.5;
-  z-index: 0;
+  background: linear-gradient(135deg, rgba(44, 36, 22, 0.85) 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 1;
+}
+
+.pattern-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 35px, #d4af37 35px, #d4af37 36px),
+    repeating-linear-gradient(-45deg, transparent, transparent 35px, #d4af37 35px, #d4af37 36px);
+  z-index: 2;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -68,143 +85,204 @@
 
 .quote-content {
   text-align: center;
-  /* background: rgba(255, 255, 255, 0.1); */
-  border-radius: 30px;
-  padding: clamp(40px, 8vw, 40px);
-  /* box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.2),
-    0 0 100px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 
-    0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%); */
-  border: 1px solid #ffd700;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 70px 60px;
   position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-.book-icon-wrapper {
-  display: inline-flex;
+.quote-content::before,
+.quote-content::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-style: solid;
+  border-color: #d4af37;
+}
+
+.quote-content::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+
+.quote-content::after {
+  top: -1px;
+  right: -1px;
+  border-width: 2px 2px 0 0;
+}
+
+.decorative-element {
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(60px, 12vw, 80px);
-  height: clamp(60px, 12vw, 80px);
-  /* background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); */
-  border-radius: 50%;
-  margin-bottom: 10px;
-  /* box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4); */
-}
-
-.book-icon {
-  /* width: clamp(30px, 6vw, 40px);
-  height: clamp(30px, 6vw, 40px); */
-  color: #ffd700;
-}
-
-.quote-marks {
-  font-size: clamp(4rem, 12vw, 8rem);
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  color: rgba(245, 87, 108, 0.2);
-  line-height: 0.5;
-  user-select: none;
-}
-
-.opening-quote {
-  display: block;
-  text-align: left;
-  margin-bottom: -30px;
-}
-
-.closing-quote {
-  display: block;
-  text-align: right;
-  margin-top: -30px;
+  gap: 20px;
   margin-bottom: 20px;
 }
 
+.decorative-element.top {
+  margin-bottom: 20px;
+}
+
+.decorative-element.bottom {
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+.decorative-element.bottom::before,
+.decorative-element.bottom::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-style: solid;
+  border-color: #d4af37;
+}
+
+.decorative-element.bottom::before {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 2px 2px;
+}
+
+.decorative-element.bottom::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+.flourish {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d4af37, transparent);
+}
+
+.flourish.left {
+  background: linear-gradient(to right, transparent, #d4af37);
+}
+
+.flourish.right {
+  background: linear-gradient(to left, transparent, #d4af37);
+}
+
+.center-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+}
+
 .bible-verse {
-  font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
   font-family: 'Playfair Display', serif;
   font-style: italic;
   color: #ffffff;
   line-height: 1.8;
   margin: 0 auto;
-  max-width: 900px;
-  font-weight: 400;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  max-width: 850px;
+  font-weight: 500;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.verse-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px 0 30px;
+}
+
+.divider-dot {
+  width: 4px;
+  height: 4px;
+  background: #d4af37;
+  border-radius: 50%;
+}
+
+.divider-line {
+  width: 60px;
+  height: 1px;
+  background: #d4af37;
 }
 
 .bible-reference {
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  color: #ffffff;
-  font-weight: 600;
-  margin-top: 30px;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: #d4af37;
+  font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
 }
 
-.decorative-divider {
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.heart-icon {
-  width: clamp(30px, 6vw, 40px);
-  height: clamp(30px, 6vw, 40px);
-  color: #f5576c;
-  opacity: 0.6;
-  animation: heartbeat 2s ease-in-out infinite;
-}
-
-@keyframes heartbeat {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-
 @media (max-width: 768px) {
   .bible-quote-section {
-    padding: 40px 15px;
-    min-height: 20vh;
+    padding: 80px 20px;
+    min-height: 40vh;
   }
 
   .quote-content {
-    padding: clamp(20px, 6vw, 60px);
-    border-radius: 20px;
+    padding: 50px 35px;
   }
 
-  .book-icon-wrapper {
+  .decorative-element.top {
     margin-bottom: 20px;
   }
 
-  .opening-quote,
-  .closing-quote {
-    margin-bottom: -20px;
-    margin-top: -20px;
+  .decorative-element.bottom {
+    margin-top: 35px;
   }
 
-  .bible-reference {
-    margin-top: 20px;
+  .flourish {
+    width: 50px;
   }
 
-  .decorative-divider {
-    margin-top: 30px;
+  .verse-divider {
+    margin: 30px 0 25px;
+  }
+
+  .bible-verse {
+    font-size: clamp(1.2rem, 3.5vw, 2rem);
   }
 }
 
 @media (max-width: 480px) {
-  .bible-verse {
-    line-height: 1.6;
+  .bible-quote-section {
+    padding: 60px 15px;
   }
 
-  .quote-marks {
-    opacity: 0.15;
+  .quote-content {
+    padding: 40px 25px;
+  }
+
+  .bible-verse {
+    line-height: 1.7;
+  }
+
+  .decorative-element {
+    gap: 15px;
+  }
+
+  .flourish {
+    width: 40px;
+  }
+
+  .center-ornament svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .verse-divider {
+    gap: 12px;
+  }
+
+  .divider-line {
+    width: 50px;
   }
 }
 </style>

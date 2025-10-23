@@ -52,7 +52,7 @@ const timeLeft = ref({
 let interval = null
 
 const calculateTimeLeft = () => {
-  const eventDate = new Date('2025-10-27T12:00:00')
+  const eventDate = new Date('2025-11-15T15:00:00')
   const now = new Date()
   const difference = eventDate - now
 
