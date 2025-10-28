@@ -5,21 +5,18 @@
     <div class="content-grid">
       <div class="left-panel">
         <div class="image-frame">
-          <picture>
-            <source 
-              media="(max-width: 768px)" 
-              srcset="../assets/images/Hero_Section_Mobile.jpg"
-            />
-            <source 
-              media="(min-width: 769px)" 
-              srcset="../assets/images/Hero_Section_Desktop.jpg"
-            />
-            <img 
-              src="../assets/images/Hero_Section_Desktop.jpg"
-              alt="Wedding" 
-              class="hero-image"
-            />
-          </picture>
+          <video 
+            class="hero-image"
+            autoplay
+            muted
+            loop
+            playsinline
+          >
+            <source src="../assets/images/Hero_Section_Mobile.mp4" media="(max-width: 768px)" />
+            <source src="../assets/images/Hero_Section_Desktop.mp4" media="(min-width: 769px)" />
+            <source src="../assets/images/Hero_Section_Desktop.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div class="image-border"></div>
         </div>
       </div>
