@@ -18,7 +18,7 @@
         </div>
 
         <blockquote class="bible-verse">
-          I have found the one whom my soul loves.
+          The Lord has done great things for us; we are glad.
         </blockquote>
         
         <!-- <div class="verse-divider">
@@ -27,7 +27,7 @@
           <span class="divider-dot"></span>
         </div> -->
         
-        <p class="bible-reference">Song of Solomon 3:4</p>
+        <p class="bible-reference">Psalms 126:3</p>
         
         <div class="decorative-element bottom"></div>
       </div>
